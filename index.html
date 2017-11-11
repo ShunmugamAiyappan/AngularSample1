@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-table demo</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/ng-table/dist/ng-table.min.css">
+</head>
+<body ng-controller="MainCtrl" class="container">
+    <table ng-table="tableParams"  class="table table-condensed table-bordered table-striped" show-filter="true">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>User Id</th>
+                <th>Title</th>
+                <th>Body</th>
+            </tr>
+        <thead>
+        <tbody>
+            <tr ng-repeat="user in $data">
+                <td data-title="'id'" filter="{ id: 'number'}" sortable="'id'">
+                    {{user.id}}
+                </td>
+                <td data-title="'User ID'" filter="{ userId: 'number'}" sortable="'userId'">
+                    {{user.userId}}
+                </td>
+                <td data-title="'Title'" filter="{ title: 'text'}" sortable="'title'">
+                    {{user.title}}
+                </td>
+                <td data-title="'Name'" filter="{ body: 'text'}" sortable="'body'">
+                    {{user.body}}
+                </td>
+            </tr>
+        </tbody>
+        </tbody>
+    </table>
+</body>
+<script src="node_modules/angular/angular.min.js"></script>
+<script src="node_modules/ng-table/dist/ng-table.min.js"></script>
+<script src="app.js"></script>
+</html>
